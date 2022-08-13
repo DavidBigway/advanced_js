@@ -18,7 +18,8 @@ const renderProduct = (product) => {
 }
 const renderPage = (products) => {
   const productsList = products.map((product) => renderProduct(product))
-
-  document.querySelector('.products').innerHTML = productsList.join('') // появились из-за того, что мы записываем массив в виде строки ["div", "div", "div"] => "div", "div", "div" / поэтому он заполняет наш элемент с запятыми. Join возвращает новую строку с символом, который мы укажем, тут ""
+  // появились из-за того, что мы записываем массив в виде строки ["div", "div", "div"] => "div", "div", "div"
+  // поэтому он заполняет наш элемент с запятыми. Join возвращает новую строку с символом, который мы укажем, тут ""
+  document.querySelector('.products').innerHTML = productsList.join('')
 }
 renderPage(products)
