@@ -1,7 +1,113 @@
-const API =
+const API_URL =
   'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
 
-class List {
+const app = new Vue({
+  el: '#app',
+  data: {
+    name: 'E-shop',
+    defaultImg:
+      'https://mosaicfest.ru/wp-content/uploads/2021/04/placeholder.png',
+    catalogDataUrl: '/catalogData.json',
+    cartDataUrl: '/getBasket.json',
+    products: [],
+    filtered: [],
+    cart: [],
+    userSearch: '',
+    cartShow: false,
+  },
+  methods: {
+    load() {
+      this.filtered = this.products
+    },
+    addToCart(e) {
+      const id = e.target.dataset.id
+      const find = this.cart.find((product) => product.id_product == id)
+      const product = this.products.filter(
+        (product) => product.id_product == id
+      )
+      if (find) {
+        this.increase(product[0], find)
+      } else {
+        this.$set(product[0], 'quantity', 1)
+        this.cart.push(product[0])
+      }
+    },
+    increase(product, cartProduct) {
+      product.quantity++
+      cartProduct.quantity = product.quantity
+    },
+    decrease(e) {
+      const id = e.target.dataset.id
+      const product = this.products.filter(
+        (product) => product.id_product == id
+      )
+      if (product[0].quantity < 1) {
+        product.quantity = 0
+      } else {
+        product[0].quantity--
+      }
+    },
+    removeProduct(e) {
+      const id = e.target.dataset.id
+      const filteredCart = this.cart.filter(
+        (product) => product.id_product != id
+      )
+      const findedProduct = this.products.find(
+        (product) => product.id_product == id
+      )
+      findedProduct.quantity = 0
+      this.cart = filteredCart
+      if (this.cart.length === 0) {
+        this.show()
+      }
+    },
+    filter() {
+      const regexp = new RegExp(this.userSearch, 'i')
+      const filtered = this.products.filter((product) =>
+        regexp.test(product.product_name)
+      )
+      this.filtered = filtered
+    },
+    getJSON(url) {
+      return fetch(url)
+        .then((res) => res.json())
+        .catch((err) => console.log(err))
+    },
+    show() {
+      this.cartShow = !this.cartShow
+      document.querySelector('.cart-block').classList.toggle('invisible')
+    },
+  },
+  mounted() {
+    this.getJSON(`${API_URL + this.catalogDataUrl}`).then((data) => {
+      for (let product of data) {
+        this.$set(product, 'img', `../src/img/${product.id_product}.png`)
+        this.products.push(product)
+      }
+    })
+    this.getJSON('../getProducts.json').then((data) => {
+      for (let product of data) {
+        // можно проверку на файлы сделать, мол если есть такой файл, тогда
+        this.$set(product, 'img', `../src/img/${product.id_product}.png`)
+        // если файлв с таким id (product.id_product.png) нет, то вставлять this.defaultImg
+        this.products.push(product)
+      }
+    })
+    this.getJSON(`${API_URL + this.cartDataUrl}`).then((data) => {
+      data.contents.forEach((product) => {
+        this.cart.push(product)
+        const findedProduct = this.products.find(
+          (item) => item.id_product == product.id_product
+        )
+        this.$set(findedProduct, 'img', `../src/img/${product.id_product}.png`)
+        this.$set(findedProduct, 'quantity', product.quantity)
+      })
+    })
+    this.load()
+  },
+})
+
+/* class List {
   constructor(url, container, list = list2) {
     this.container = container
     this.list = list
@@ -205,44 +311,4 @@ let cart = new Cart()
 let products = new ProductsList(cart)
 products.getJson(`getProducts.json`).then((data) => products.handleData(data))
 
-const quotesText = `One: 'Hi Mary.'
-Two: 'Oh, hi.'
-One: 'How are you doing?'
-Two: 'I'm doing alright. How about you?'
-One: 'Not too bad. The weather is great isn't it?'
-Two: 'Yes. It's absolutely beautiful today.'
-One: 'I wish it was like this more frequently.'
-Two: 'Me too.'
-One: 'So where are you going now?'
-Two: 'I'm going to meet a friend of mine at the department store.'
-One: 'Going to do a little shopping?'
-Two: 'Yeah, I have to buy some presents for my parents.'
-One: 'What's the occasion?'
-Two: 'It's their anniversary.'
-One: 'That's great. Well, you better get going. You don't want to be late.'
-Two: 'I'll see you next time.'
-One: 'Sure. Bye.'`
-
-const re = /\n/gm
-const q = quotesText.replace(re, '<br/>')
-
-const quotesTextEl = document.querySelector('.quotes-text')
-const allQuotesEl = document.querySelectorAll('button')
-quotesTextEl.insertAdjacentHTML('beforeend', q)
-const allQuotes = (e) => {
-  quotesTextEl.innerHTML = ''
-  const datasetId = e.target.dataset.id
-  if (datasetId === 'reset') {
-    quotesTextEl.insertAdjacentHTML('beforeend', q)
-  }
-  if (datasetId === 'all-quotes') {
-    const s = q.replace(/'/gm, `"`)
-    quotesTextEl.insertAdjacentHTML('beforeend', s)
-  }
-  if (datasetId === 'none-apostrophe') {
-    const s = q.replace(/[ ]+\'|[']+\n/gm, `"`)
-    quotesTextEl.insertAdjacentHTML('beforeend', s)
-  }
-}
-
-allQuotesEl.forEach((elem) => elem.addEventListener('click', allQuotes))
+ */
