@@ -8,85 +8,17 @@
   </head>
   <body>
     <div id="app">
+      <error-msg></error-msg>
       <header>
         <div class="logo">{{name}}</div>
         <div class="cart">
-          <form action="#" class="search-form">
-            <input type="text" class="search-field" v-model="userSearch" />
-            <button class="btn-search" type="submit" @click="filter">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
+          <search-form :user-search="userSearch"></search-form>
           <button class="btn-cart" type="button" @click="show">Корзина</button>
-          <div class="cart-block invisible">
-            <div
-              class="cart-item"
-              v-bind:data-id="product.id_product"
-              v-for="product of cart"
-            >
-              <div class="product-bio">
-                <img
-                  :src="product.img"
-                  :alt="product.product_name"
-                  v-if="product.img"
-                />
-                <img :src="defaultImg" alt="Some img" v-else />
-                <div class="product-desc">
-                  <p class="product-title">{{product.product_name}}</p>
-                  <p class="product-quantity">{{product.quantity}}</p>
-                  <p class="product-single-price">{{product.price}} цена</p>
-                </div>
-              </div>
-              <div class="right-block">
-                <p class="product-price">
-                  Всего {{ product.price * product.quantity }}
-                </p>
-                <button
-                  class="del-btn"
-                  v-bind:data-id="product.id_product"
-                  @click="removeProduct"
-                >
-                  &times;
-                </button>
-              </div>
-            </div>
-          </div>
+          <cart-block></cart-block>
         </div>
       </header>
       <main>
-        <div class="products">
-          <div
-            class="product-item"
-            v-bind:id="product.id_product"
-            v-for="product of filtered"
-          >
-            <img
-              :src="product.img"
-              :alt="product.product_name"
-              v-if="product.img"
-            />
-            <img :src="defaultImg" alt="Some img" v-else />
-            <div class="desc">
-              <h3>{{product.product_name}}</h3>
-              <p>{{product.price}}</p>
-              <p>Количество: {{product.quantity ? product.quantity : 0}}</p>
-              <button
-                class="btn buy-btn"
-                v-bind:data-id="product.id_product"
-                @click="addToCart"
-              >
-                Купить
-              </button>
-              <button
-                class="btn del-btn"
-                v-bind:data-id="product.id_product"
-                @click="decrease"
-              >
-                Удалить
-              </button>
-            </div>
-          </div>
-        </div>
+        <products :products="filtered" :img="defaultImg"></products>
       </main>
     </div>
     <script
@@ -98,6 +30,10 @@
 
     <div class="products"></div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+    <script src="src/js/ErrorComponent.js"></script>
+    <script src="src/js/CartComponent.js"></script>
+    <script src="src/js/ProductsComponent.js"></script>
+    <script src="src/js/SearchComponent.js"></script>
     <script src="src/js/main.js"></script>
   </body>
 </html>
