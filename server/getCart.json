@@ -1,0 +1,22 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 7,
+            "product_name": "MANGO PEOPLE PANTS",
+            "price": 120,
+            "currency": "$",
+            "product_img": "./src/assets/img/mango-people-t-shirt-7.png"
+        },
+        {
+            "quantity": 1,
+            "id_product": 3,
+            "product_name": "MANGO PEOPLE BAG",
+            "price": 52,
+            "currency": "$",
+            "product_img": "./src/assets/img/mango-people-t-shirt-3.png"
+        }
+    ]
+}

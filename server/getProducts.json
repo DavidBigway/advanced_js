@@ -1,0 +1,58 @@
+[
+  {
+    "id_product": 1,
+    "product_name": "MANGO PEOPLE T-SHIRT",
+    "price": 30.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt.png"
+  },
+  {
+    "id_product": 2,
+    "product_name": "MANGO PEOPLE RED T-SHIRT",
+    "price": 42.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-2.png"
+  },
+  {
+    "id_product": 3,
+    "product_name": "MANGO PEOPLE BAG",
+    "price": 52.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-3.png"
+  },
+  {
+    "id_product": 4,
+    "product_name": "MANGO PEOPLE DRESS",
+    "price": 80.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-4.png"
+  },
+  {
+    "id_product": 5,
+    "product_name": "MANGO PEOPLE BLOUSE",
+    "price": 70.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-5.png"
+  },
+  {
+    "id_product": 6,
+    "product_name": "MANGO PEOPLE BLAZER",
+    "price": 159.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-6.png"
+  },
+  {
+    "id_product": 7,
+    "product_name": "MANGO PEOPLE PANTS",
+    "price": 120.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-7.png"
+  },
+  {
+    "id_product": 8,
+    "product_name": "MANGO PEOPLE BREEDINGS",
+    "price": 43.0,
+    "currency": "$",
+    "product_img": "./src/assets/img/mango-people-t-shirt-8.png"
+  }
+]
