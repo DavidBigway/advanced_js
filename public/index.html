@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/assets/css/style.css" />
+    <link rel="stylesheet" href="src/assets/css/single-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Shop</title>
+  </head>
+  <body>
+    <div id="app">
+      <header-comp></header-comp>
+      <nav-comp></nav-comp>
+
+      <main>
+        <div class="banner-section">
+          <div class="banner">
+            <div class="banner__separator"></div>
+            <div class="banner__title">
+              <h2>the brand</h2>
+              <p>of luxerious <span>fashion</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="categories">
+          <div class="categories-grid container">
+            <a href="#" class="category-item item-1">
+              <div class="category-item__title">
+                <p>hOT dEAL</p>
+                <h4>FOR MEN</h4>
+              </div>
+            </a>
+            <a href="#" class="category-item item-2">
+              <div class="category-item__title">
+                <p>LUXIROUS & trendy</p>
+                <h4>ACCESORIES</h4>
+              </div>
+            </a>
+            <a href="#" class="category-item item-3">
+              <div class="category-item__title">
+                <p>30% offer</p>
+                <h4>women</h4>
+              </div>
+            </a>
+            <a href="#" class="category-item item-4">
+              <div class="category-item__title">
+                <p>new arrivals</p>
+                <h4>FOR kids</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="fetured-items">
+          <div class="container">
+            <div class="fetured-items__title">
+              <h3>Fetured Items</h3>
+              <p>Shop for items based on what we fetured in this week</p>
+            </div>
+            <products-cards></products-cards>
+            <button class="browse-all-product">
+              Browse All Product
+              <img src="src/assets/img/arrow-button-right.png" alt="arrow" />
+            </button>
+          </div>
+        </div>
+        <div class="offers">
+          <div class="offer-flex container">
+            <div class="offer-image">
+              <div class="offer-title">
+                <h4>30% <span>offer</span></h4>
+                <p>for women</p>
+              </div>
+            </div>
+            <div class="offer-service">
+              <div class="offer-service__item item-1">
+                <div class="offer-service__text">
+                  <h5 class="offer-service__title">Free Delivery</h5>
+                  <div class="offer-service__description">
+                    Worldwide delivery on all. Authorit tively morph
+                    next-generation innov tion with extensive models.
+                  </div>
+                </div>
+              </div>
+              <div class="offer-service__item item-2">
+                <div class="offer-service__text">
+                  <h5 class="offer-service__title">Sales & discounts</h5>
+                  <div class="offer-service__description">
+                    Worldwide delivery on all. Authorit tively morph
+                    next-generation innov tion with extensive models.
+                  </div>
+                </div>
+              </div>
+              <div class="offer-service__item item-3">
+                <div class="offer-service__text">
+                  <h5 class="offer-service__title">Quality assurance</h5>
+                  <div class="offer-service__description">
+                    Worldwide delivery on all. Authorit tively morph
+                    next-generation innov tion with extensive models.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="subscribe">
+        <div class="subscribe-flex container">
+          <div class="subscribe-feedbacks">
+            <div class="subscribe-feedback">
+              <div class="subscribe-feedback__image">
+                <img src="src/assets/img/subsribe-avatar.png" alt="" />
+              </div>
+              <div class="subscribe-feedback__text">
+                <p>
+                  “Vestibulum quis porttitor dui! Quisque viverra nunc mi, a
+                  pulvinar purus condimentum a. Aliquam condimentum mattis neque
+                  sed pretium”
+                </p>
+                <h6>Bin Burhan</h6>
+                <p>Dhaka, Bd</p>
+              </div>
+            </div>
+            <div class="swiper">
+              <div class="swiper-item"></div>
+              <div class="swiper-item active"></div>
+              <div class="swiper-item"></div>
+            </div>
+          </div>
+          <div class="subscribe-send">
+            <div class="subscribe-send__text">
+              <h5>Subscribe</h5>
+              <p>FOR OUR NEWLETTER AND PROMOTION</p>
+            </div>
+            <div class="subscribe-send__input">
+              <form>
+                <input type="text" placeholder="Enter Your Email" />
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer-comp></footer-comp>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="src/assets/js/CartComponent.js"></script>
+    <script src="src/assets/js/ProductsComponent.js"></script>
+    <script src="src/assets/js/SearchComponent.js"></script>
+    <script src="src/assets/js/main.js"></script>
+  </body>
+</html>
