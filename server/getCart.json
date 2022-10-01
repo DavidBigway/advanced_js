@@ -3,6 +3,14 @@
     "countGoods": 2,
     "contents": [
         {
+            "quantity": 2,
+            "id_product": 2,
+            "product_name": "MANGO PEOPLE RED T-SHIRT",
+            "price": 42,
+            "currency": "$",
+            "product_img": "./src/assets/img/mango-people-t-shirt-2.png"
+        },
+        {
             "quantity": 1,
             "id_product": 3,
             "product_name": "MANGO PEOPLE BAG",
